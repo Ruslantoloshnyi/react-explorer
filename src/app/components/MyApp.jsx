@@ -2,14 +2,18 @@ import TheHeader from "./TheHeader/TheHeader";
 import TheContent from "./TheContent/TheContent";
 import "./MyApp.css";
 import TheFooter from "./TheFooter/TheFooter";
+import TheStories from "./TheStories/TheStories";
 
 function MyApp() {
   return (
-    <div>
-      <TheHeader></TheHeader>
-      <TheContent></TheContent>
+    <>
+      <div className="background">
+        <TheHeader></TheHeader>
+        <TheContent></TheContent>
+      </div>
+      <TheStories></TheStories>
       <TheFooter></TheFooter>
-    </div>
+    </>
   );
 }
 
