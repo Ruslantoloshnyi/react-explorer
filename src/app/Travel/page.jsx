@@ -1,17 +1,17 @@
 import TheFooter from "../components/TheFooter/TheFooter";
 import TheHeader from "../components/TheHeader/TheHeader";
-import TheContent from "../components/TheContent/TheContent";
+import TheTravel from "../components/TheTravel/TheTravel";
 
-function Blog() {
+function Travel() {
   return (
     <>
       <div className="background">
         <TheHeader></TheHeader>
-        <TheContent></TheContent>
+        <TheTravel></TheTravel>
       </div>
       <TheFooter></TheFooter>
     </>
   );
 }
 
-export default Blog;
+export default Travel;

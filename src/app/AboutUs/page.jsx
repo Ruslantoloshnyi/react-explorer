@@ -1,17 +1,17 @@
+import AboutUs from "../components/AboutUs/AboutUs";
 import TheFooter from "../components/TheFooter/TheFooter";
 import TheHeader from "../components/TheHeader/TheHeader";
-import TheContent from "../components/TheContent/TheContent";
 
-function Blog() {
+function AboutUsPage() {
   return (
     <>
       <div className="background">
         <TheHeader></TheHeader>
-        <TheContent></TheContent>
+        <AboutUs></AboutUs>
       </div>
       <TheFooter></TheFooter>
     </>
   );
 }
 
-export default Blog;
+export default AboutUsPage;

@@ -398,10 +398,10 @@ ul {
   list-style-type: none;
 }
 
-/* .background {
-  background-image: url("/image_1.jpg");
+.background {
+  background-image: url("/priroda5.jpg");
   background-size: cover;
-} */
+}
 
 .header_wrapper {
   padding-left: 22%;

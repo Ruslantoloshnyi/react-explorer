@@ -2,7 +2,7 @@ import TheFooter from "../components/TheFooter/TheFooter";
 import TheHeader from "../components/TheHeader/TheHeader";
 import TheContent from "../components/TheContent/TheContent";
 
-function Blog() {
+function Categories() {
   return (
     <>
       <div className="background">
@@ -14,4 +14,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default Categories;
