@@ -1,28 +1,47 @@
-function ImageContent() {
+import he from "he";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+function ImageContent(props) {
+  const title = props.title;
+  const excerpt = props.excerpt.replace(/<\/?p>/g, "");
+  const decodeExcerpt = he.decode(excerpt);
+
+  const [imageUrl, setImageUrl] = useState("");
+
+  useEffect(() => {
+    if (props.media) {
+      fetch(`http://explorer-wp/wp-json/wp/v2/media/${props.media}`)
+        .then((response) => response.json())
+        .then((data) => {
+          const imageSource = data.guid.rendered;
+          setImageUrl(imageSource);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [props.media]);
+
+  console.log(imageUrl);
+
   return (
     <div className="content">
       <div className="content__image">
         <div>
-          <img src="/image_1.jpg" alt="true" />
-          <div className="content__head">
-            The 10 most beautiful places you should visit in your life
-          </div>
+          {/* <image src="/image_1.jpg" alt="kak i sho" /> */}
+          <Image src={imageUrl} alt="futured" width={800} height={300}></Image>
+          <div className="content__head">{title}</div>
           <div className="content-autor">
-            <img src="/autor_1.png" alt="true" />
+            <img src="/autor_1.png" alt="kik ni sho" />
             <div>
-              <div className="content-autor__name">Luke Cage</div>
-              <div className="content-autor__date">October 11, 2016</div>
+              <div className="content-autor__name">{props.author}</div>
+              <div className="content-autor__date">{props.date}</div>
             </div>
           </div>
         </div>
         <div className="content__image_text">
-          <p>
-            Vestibulum ut placerat nisl. Cras sed purus tellus. Pellentesque
-            habitant morbi tristique senectus et netus et malesuada fames ac
-            turpis egestas. Duis posuere nisi sit amet neque finibus vestibulum.
-            Vivamus at leo ut turpis posuere molestie. Nullam at turpis nec
-            metus pharetra bibendum. Vivamus id urna et leo blandit consequat.
-          </p>
+          <p>{decodeExcerpt}</p>
           <p>Continue Reading →</p>
         </div>
       </div>

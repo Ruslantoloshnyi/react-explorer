@@ -16,7 +16,7 @@ function TheStories() {
           </div>
           <div className="stories__link">
             <p>Want to read all of our stories?</p>
-            <a href="#">Read the full blog</a>
+            {/* <a href="#">Read the full blog</a> */}
           </div>
         </div>
       </div>
