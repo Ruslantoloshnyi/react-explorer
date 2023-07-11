@@ -1,3 +1,5 @@
+"use client";
+
 import he from "he";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -21,7 +23,12 @@ function ImageContent(props) {
           console.error(error);
         });
     }
-  }, [props.media]);
+  }, []);
+
+  if (!imageUrl) {
+    // Пока запрос выполняется, можно отобразить заглушку или индикатор загрузки
+    return <div>Loading...</div>;
+  }
 
   console.log(imageUrl);
 
@@ -29,8 +36,7 @@ function ImageContent(props) {
     <div className="content">
       <div className="content__image">
         <div>
-          {/* <image src="/image_1.jpg" alt="kak i sho" /> */}
-          <Image src={imageUrl} alt="futured" width={800} height={300}></Image>
+          <Image src={imageUrl} alt="futured" width={800} height={330}></Image>
           <div className="content__head">{title}</div>
           <div className="content-autor">
             <img src="/autor_1.png" alt="kik ni sho" />

@@ -10,24 +10,24 @@ import Client from "./clients";
 
 function MyApp() {
   const [postData, setPostData] = useState([]);
+  const [storiesData, setStoriesData] = useState([]);
+
   function getPosts(posts) {
     setPostData(posts);
   }
 
-  const title = "";
-
-  // for (let arr of postData) {
-  //   console.log(arr.content.rendered);
-  // }
+  function getStories(stories) {
+    setStoriesData(stories);
+  }
 
   return (
     <>
       <div className="background">
-        <Client getPosts={getPosts}></Client>
+        <Client getPosts={getPosts} getStories={getStories}></Client>
         <TheHeader></TheHeader>
         <TheContent postData={postData}></TheContent>
       </div>
-      <TheStories></TheStories>
+      <TheStories storiesData={storiesData}></TheStories>
       <TheFooter></TheFooter>
     </>
   );

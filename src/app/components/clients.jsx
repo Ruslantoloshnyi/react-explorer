@@ -14,6 +14,17 @@ function Client(props) {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("http://explorer-wp/wp-json/wp/v2/stories")
+      .then((response) => response.json())
+      .then((data) => {
+        props.getStories(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return null;
 }
 
